@@ -3,15 +3,12 @@ import time
 import os
 import argparse
 from gridappsd import GOSS
-from pprint import pprint
+import random
+
 goss_sim = "goss.gridappsd.process.request.simulation"
 test_topic = 'goss.gridappsd.test'
 responseQueueTopic = '/temp-queue/response-queue'
 goss_simulation_status_topic = '/topic/goss.gridappsd/simulation/status/'
-def makeJavaString(request, name="requestString"):
-    javaString = json.dumps(json.loads(request)).replace('"','\\"')
-    javaString = "String " + name + ' = "' + javaString + '";'
-    print(javaString)
 
 def _startTest(username,password,gossServer='localhost',stompPort='61613', simulationID=1234, rulePort=5000, topic="input"):
     loc = os.path.realpath(__file__)
@@ -40,9 +37,11 @@ def _startTest(username,password,gossServer='localhost',stompPort='61613', simul
         "stopDateTime": 1248156002 + 21
     }]
 
+    test_id = str(random.getrandbits(32))
     testCfgAll = {
-        "appId": "sample_app_opp",
-    }
+               "appId": "sample_app",
+               "testId": str(test_id)
+               }
 
     with open("expected_result_series_filtered_123_normal_small_4.json") as f:
         expectedJson = json.load(f)
@@ -68,27 +67,15 @@ def _startTest(username,password,gossServer='localhost',stompPort='61613', simul
                     "application_config": {"applications": [{"name": "sample_app", "config_string": ""}]},
                     "simulation_request_type": "NEW"}
     req_template['simulation_config']['duration'] = 60
-    # req_template['power_system_config']['Line_name'] = '_E407CBB6-8C8D-9BC9-589C-AB83FBF0826D'  # Mine 123pv
-    # req_template['power_system_config']['Line_name'] = '_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3'  # IEEEE 8500
     req_template['power_system_config']['Line_name'] = '_C1C3E687-6FFD-C753-582B-632A27E28507'  # IEEE 123
-
-    # req_template['power_system_config']['Line_name'] = '_C77C898B-788F-8442-5CEA-0D06ABA0693B'  # 123 PV REG
-    # req_template['power_system_config']['Line_name'] = '_EBDB5A4A-543C-9025-243E-8CAD24307380'
+    # req_template['power_system_config']['Line_name'] = '_AAE94E4A-2465-6F5E-37B1-3E72183A4E44'  # test9500new
 
     req_template["application_config"]["applications"][0]['name'] = 'sample_app'
-    req_template["application_config"]["applications"][0]['name'] = 'sample_app_opp'
-    # req_template["application_config"]["applications"][0]['name'] = 'der_dispatch_app'
+    # req_template["application_config"]["applications"][0]['name'] = 'sample_app_opp'
 
     req_template['test_config'] = testCfgAll
     # testCfgAll['testScript'] = tesScriptJson
     # req_template['expectedResults'] = expectedJson['expectedResults']
-
-    simCfg13pv = json.dumps(req_template)
-    # print(simCfg13pv)
-    # print()
-    # print(makeJavaString(simCfg13pv))
-    # print()
-    # print(json.dumps(testCfgAll,indent=2))
 
     goss = GOSS()
     goss.connect()
