@@ -43,8 +43,8 @@ def start_test():
                "testId": str(test_id)
                }
 
-    with open("expected_result_series_filtered_9500.json") as f:
-    # with open("expected_result_series_filtered_123_normal_small_4.json") as f:
+    # with open("expected_result_series_filtered_9500.json") as f:
+    with open("expected_result_series_filtered_123_normal_small_4.json") as f:
         expectedJson = json.load(f)
 
     testCfgAll['expectedResults'] = expectedJson['expectedResults']
@@ -61,8 +61,8 @@ def start_test():
     req_template['test_config'] = testCfgAll
 
     simCfg13pv = json.dumps(req_template)
-    print(simCfg13pv)
-    print(json.dumps(testCfgAll,indent=2))
+    # print(simCfg13pv)
+    # print(json.dumps(testCfgAll,indent=2))
 
     goss = GOSS()
     goss.connect()

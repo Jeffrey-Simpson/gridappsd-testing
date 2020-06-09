@@ -2,15 +2,14 @@ import json
 import argparse
 from gridappsd import GOSS
 import random
+import time
 
 goss_sim = "goss.gridappsd.process.request.simulation"
 test_input = "/topic/goss.gridappsd.simulation.test.input."
 
-# def _startTest(username,password,gossServer='localhost',stompPort='61613', simulationID=1234):
 def start_test(simulationID=1234):
     goss = GOSS()
     goss.connect()
-
     test_id = str(random.getrandbits(32))
     testCfgAll = {
                "appId": "sample_app",
@@ -23,11 +22,11 @@ def start_test(simulationID=1234):
 
     testCfgAll['expectedResults'] = expectedJson['expectedResults']
 
-    testCfgAll['compareWithSimId'] = simulationID
+    testCfgAll['compareWithSimId'] = simulationID # 847461010
     request = json.dumps(testCfgAll)
 
     # status = goss.get_response(test_input+str(simulationID), request, timeout=20)
-    status = goss.send(test_input+str(simulationID), request)
+    status = goss.get_response(test_input+str(test_id), request, timeout=20)
     print(status)
     print('sent test status')
     return test_id
