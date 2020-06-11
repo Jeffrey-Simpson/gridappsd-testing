@@ -7,21 +7,21 @@
             "timestamp": 1535574871,
             "measurements": [
               {
-                "measurement_mrid": "_0055de94-7d7e-4931-a884-cab596cc191b",
+                "measurement_mrid": "_007d97d4-4b30-4635-8122-8e7f1e7cf3be",
                 "angle": -5.066423674487563,
-                "magnitude": 2361.0733024639117,
+                "magnitude": 235525.8716877966,
                 "simulation_id": "1961648576",
                 "time": 1248156002},
                {
-                "measurement_mrid": "_fff9a11e-d5d1-4824-a457-13d944ffcfdf",
-                "angle": -122.80107769837849,
-                "magnitude": 2520.2169329056983,
+                "measurement_mrid": "_00ce801b-214d-4540-9cbb-1ddcac0c0495",
+                "angle": -86.36800510651457,
+                "magnitude": 1.4651647694061578,
                 "simulation_id": "1961648576",
                 "time": 1248156002},
                {
-                "measurement_mrid": "_0058123f-da11-4f7c-a429-e47e5949465f",
-                "angle": -122.70461031091335,
-                "magnitude": 2522.818525429715,
+                "measurement_mrid": "_01204a90-9893-4e57-8ea5-0a09198e58fe",
+                "angle": 28.940770423235723,
+                "magnitude": 374545.4981119089,
                 "simulation_id": "1961648576",
                 "time": 1248156002}
             ]
@@ -40,14 +40,14 @@
               "time": 1587670650,
               "attribute": "ShuntCompensator.sections",
               "value": 1.0,
-              "object": "_307E4291-5FEA-4388-B2E0-2B3D22FE8183"},
+              "object": "_939CA567-AA3D-4972-AABC-1D0AAF4859FE"},
              {"hasMeasurementDifference": "REVERSE",
               "difference_mrid": "1fae379c-d0e2-4c80-8f2c-c5d7a70ff4d4",
               "simulation_id": "1961648576",
               "time": 1587670650,
               "attribute": "ShuntCompensator.sections",
               "value": 0.0,
-              "object": "_307E4291-5FEA-4388-B2E0-2B3D22FE8183"}
+              "object": "_939CA567-AA3D-4972-AABC-1D0AAF4859FE"}
           ]
         }
       },
@@ -62,14 +62,14 @@
               "time": 1587670665,
               "attribute": "ShuntCompensator.sections",
               "value": 0.0,
-              "object": "_307E4291-5FEA-4388-B2E0-2B3D22FE8183"},
+              "object": "_939CA567-AA3D-4972-AABC-1D0AAF4859FE"},
              {"hasMeasurementDifference": "REVERSE",
               "difference_mrid": "1fae379c-d0e2-4c80-8f2c-c5d7a70ff4d4",
               "simulation_id": "1961648576",
               "time": 1587670665,
               "attribute": "ShuntCompensator.sections",
               "value": 1.0,
-              "object": "_307E4291-5FEA-4388-B2E0-2B3D22FE8183"}
+              "object": "_939CA567-AA3D-4972-AABC-1D0AAF4859FE"}
           ]
         }
       },
@@ -84,14 +84,14 @@
               "time": 1587670665,
               "attribute": "ShuntCompensator.sections",
               "value": 0.0,
-              "object": "_307E4291-5FEA-4388-B2E0-2B3D22FE8183"},
+              "object": "_939CA567-AA3D-4972-AABC-1D0AAF4859FE"},
              {"hasMeasurementDifference": "REVERSE",
               "difference_mrid": "1fae379c-d0e2-4c80-8f2c-c5d7a70ff4d4",
               "simulation_id": "1961648576",
               "time": 1587670665,
               "attribute": "ShuntCompensator.sections",
               "value": 1.0,
-              "object": "_307E4291-5FEA-4388-B2E0-2B3D22FE8183"}
+              "object": "_939CA567-AA3D-4972-AABC-1D0AAF4859FE"}
           ]
         }
       },
@@ -106,14 +106,14 @@
               "time": 1587670665,
               "attribute": "ShuntCompensator.sections",
               "value": 0.0,
-              "object": "_307E4291-5FEA-4388-B2E0-2B3D22FE8183"},
+              "object": "_939CA567-AA3D-4972-AABC-1D0AAF4859FE"},
              {"hasMeasurementDifference": "REVERSE",
               "difference_mrid": "1fae379c-d0e2-4c80-8f2c-c5d7a70ff4d4",
               "simulation_id": "1961648576",
               "time": 1587670665,
               "attribute": "ShuntCompensator.sections",
               "value": 1.0,
-              "object": "_307E4291-5FEA-4388-B2E0-2B3D22FE8183"}
+              "object": "_939CA567-AA3D-4972-AABC-1D0AAF4859FE"}
           ]
         }
       }
