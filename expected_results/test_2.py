@@ -36,7 +36,17 @@ def test_expected(sim_id1, sim_id2):
     for i in response['data']:
         print(i)
 
-    time.sleep(1)
+    test_id = request_test_timeseries_vs_timeseries.start_test(sim_id1, sim_id1)
+    time.sleep(2)
+    count_query = '{"query":"select COUNT(*) from expected_results where test_id=\'' + test_id + '\' and match_flag=0"}'
+    response = goss.get_response(log_topic, count_query, timeout=10)
+    print(response['data'][0]['COUNT(*)'])
+    print(response['data'][0]['COUNT(*)'] == '0')
+    query = '{"query":"select * from expected_results where test_id=\'' + test_id + '\' and match_flag=0"}'
+    print(query)
+    response = goss.get_response(log_topic, query, timeout=120)
+    for i in response['data']:
+        print(i)
 
     test_id = request_test_timeseries_vs_timeseries.start_test(sim_id1, sim_id2)
     time.sleep(5)
@@ -50,6 +60,7 @@ def test_expected(sim_id1, sim_id2):
     response = goss.get_response(log_topic, query, timeout=120)
     for i in response['data']:
         print(i)
+
 
 
 if __name__ == '__main__':
