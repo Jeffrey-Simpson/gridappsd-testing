@@ -3,11 +3,14 @@ import argparse
 from gridappsd import GOSS
 import random
 import time
+import os
 
 goss_sim = "goss.gridappsd.process.request.simulation"
 test_input = "/topic/goss.gridappsd.simulation.test.input."
 
 def start_test(simulationID=1234):
+    loc = os.path.realpath(__file__)
+    loc = os.path.dirname(loc)
     goss = GOSS()
     goss.connect()
     test_id = str(random.getrandbits(32))
@@ -16,7 +19,7 @@ def start_test(simulationID=1234):
                 "testId": test_id
                }
     testCfgAll['testType'] = 'expected_vs_timeseries'
-    with open("expected_result_series_filtered_123_normal_small_4.json") as f:
+    with open(os.path.join(loc,"expected_result_series_filtered_123_normal_small_4.json")) as f:
     # with open("expected_result_series_filtered_9500.json") as f:
         expectedJson = json.load(f)
 

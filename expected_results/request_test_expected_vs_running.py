@@ -44,7 +44,7 @@ def start_test():
                }
 
     # with open("expected_result_series_filtered_9500.json") as f:
-    with open("expected_result_series_filtered_123_normal_small_4.json") as f:
+    with open(os.path.join(loc, "expected_result_series_filtered_123_normal_small_4.json")) as f:
         expectedJson = json.load(f)
 
     testCfgAll['expectedResults'] = expectedJson['expectedResults']
