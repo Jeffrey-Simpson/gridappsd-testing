@@ -187,7 +187,7 @@ def docker_up(docker_config=None):
             container = client.containers.run(**kwargs)
             gridappsd_docker_config[service]['containerid'] = container.id
 
-    time.sleep(30)
+    time.sleep(60)
 
     # List all running containers
     print("\n\nList all containers")

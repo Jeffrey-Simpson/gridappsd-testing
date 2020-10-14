@@ -1,0 +1,76 @@
+{
+    "data": {
+        "head": {
+            "vars": [
+                "property",
+                "value"
+            ]
+        },
+        "results": {
+            "bindings": [
+                {
+                    "property": {
+                        "type": "uri",
+                        "value": "http://iec.ch/TC57/CIM100#ConnectivityNode.ConnectivityNodeContainer"
+                    },
+                    "value": {
+                        "type": "uri",
+                        "value": "http://localhost:8889/bigdata/sparql#_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3"
+                    }
+                },
+                {
+                    "property": {
+                        "type": "uri",
+                        "value": "http://iec.ch/TC57/CIM100#ConnectivityNode.OperationalLimitSet"
+                    },
+                    "value": {
+                        "type": "uri",
+                        "value": "http://localhost:8889/bigdata/sparql#_B42A7C50-D9A6-4D9B-A8B1-77832E42906D"
+                    }
+                },
+                {
+                    "property": {
+                        "type": "uri",
+                        "value": "http://iec.ch/TC57/CIM100#ConnectivityNode.TopologicalNode"
+                    },
+                    "value": {
+                        "type": "uri",
+                        "value": "http://localhost:8889/bigdata/sparql#_973FDFE4-BA41-4B00-A083-79192334A4F5"
+                    }
+                },
+                {
+                    "property": {
+                        "type": "uri",
+                        "value": "http://iec.ch/TC57/CIM100#IdentifiedObject.mRID"
+                    },
+                    "value": {
+                        "type": "literal",
+                        "value": "_46EA069B-F08C-4945-9C08-8F7CABECCF5C"
+                    }
+                },
+                {
+                    "property": {
+                        "type": "uri",
+                        "value": "http://iec.ch/TC57/CIM100#IdentifiedObject.name"
+                    },
+                    "value": {
+                        "type": "literal",
+                        "value": "p827512"
+                    }
+                },
+                {
+                    "property": {
+                        "type": "uri",
+                        "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+                    },
+                    "value": {
+                        "type": "uri",
+                        "value": "http://iec.ch/TC57/CIM100#ConnectivityNode"
+                    }
+                }
+            ]
+        }
+    },
+    "id": "835013065",
+    "responseComplete": true
+}

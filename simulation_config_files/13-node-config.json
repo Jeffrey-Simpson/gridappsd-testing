@@ -9,8 +9,8 @@
 		"applications": []
 	},
 	"simulation_config": {
-		"start_time": "1580420688",
-		"duration": "120",
+		"start_time": "1373814060",
+		"duration": "600",
 		"simulator": "GridLAB-D",
 		"timestep_frequency": "1000",
 		"timestep_increment": "1000",
@@ -28,7 +28,7 @@
 		}
 	},
 	"test_config": {
-		"events": [],
+		"events": [{"message":{"forward_differences":[{"object":"_302E3119-B3ED-46A1-87D5-EBC8496357DF","attribute":"Switch.open","value":1}],"reverse_differences":[{"object":"_302E3119-B3ED-46A1-87D5-EBC8496357DF","attribute":"Switch.open","value":0}]},"event_type":"ScheduledCommandEvent","occuredDateTime":1373814120,"stopDateTime":1373817600}],
 		"appId": ""
 	},
 	"service_configs": [{

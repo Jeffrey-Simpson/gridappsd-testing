@@ -1,0 +1,8 @@
+{  "queryMeasurement":"weather",
+   "queryFilter":{
+      "startTime":"1373814000",
+      "endTime":"1373814060"
+   
+},
+   "responseFormat":"JSON"
+}
