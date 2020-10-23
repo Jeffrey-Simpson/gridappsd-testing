@@ -19,6 +19,7 @@ class SimpleListener(object):
         """
         self._gapps = gridappsd_obj
         self._test_id = test_id
+        self._error_count = 0
 
     def on_message(self, headers, message):
         """ Handle incoming messages on the simulation_output_topic for the simulation_id
@@ -33,11 +34,15 @@ class SimpleListener(object):
             not a requirement.
         """
         print(message)
-
+        if 'status' in message and (message['status'] == 'finish' or message['status'] == 'start'):
+            pass
+        else:
+            self._error_count+=1
         # json_message = json.loads(message)
         # "{\"status\":\"start\"}")
         if 'status' in message and message['status'] == 'finish':
             print("Exit")
+            print("Error count " + str(self._error_count))
             os._exit(1)
 
 

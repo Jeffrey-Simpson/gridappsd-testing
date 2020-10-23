@@ -21,7 +21,8 @@ def start_test(simulationID1, simulationID2):
     testCfgAll['testType'] = 'timeseries_vs_timeseries'
     request = json.dumps(testCfgAll)
 
-    status = goss.get_response(test_input+str(test_id), request, timeout=60)
+    # status = goss.get_response(test_input+str(test_id), request, timeout=60)
+    status = goss.send(test_input+str(test_id), request)
     print(status)
     print('sent test status')
     return test_id
