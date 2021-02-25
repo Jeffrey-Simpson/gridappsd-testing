@@ -25,7 +25,7 @@ LOGGER = logging.getLogger(__name__)
     ("ieee13nodecktassets", "_5B816B93-7A5F-B64C-8460-47C17D6E4B0F"),
     ("test9500new", "_AAE94E4A-2465-6F5E-37B1-3E72183A4E44"),
 ])
-def test_configuration_output(gridappsd_client, model_name, model_id):
+def test_symbols_file_output(gridappsd_client, model_name, model_id):
 
 	result_file = os.path.join(os.path.dirname(__file__), f"simulation_baseline_files/configuration_api/{model_name}.json")
 
@@ -39,15 +39,14 @@ def test_configuration_output(gridappsd_client, model_name, model_id):
 			}
 
 	response = gapps.get_response(t.CONFIG ,query, timeout=300)
-	#print(response["data"])
-	#print(result_file)
+	
 	with open(result_file, 'r') as fl:
 		result = json.load(fl)
-	#print(result)
+	
 
 	difference = diff(response["data"], result)
 
 	print(list(difference))
 
 	assert len(list(difference))==0
-	#assert not list(difference)
+	
