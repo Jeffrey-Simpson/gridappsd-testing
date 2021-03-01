@@ -1,5 +1,6 @@
 from copy import deepcopy
 from pathlib import Path
+from py.xml import html
 
 import pytest
 from gridappsd import GOSS, GridAPPSD
@@ -53,6 +54,18 @@ def gridappsd_client(docker_dependencies):
 
         gappsd.disconnect()
 
+@pytest.fixture(scope="module")
+def gridappsd_client_module(docker_dependencies):
+    with run_gridappsd_container(True):
+        gappsd = GridAPPSD()
+        gappsd.connect()
+        assert gappsd.connected
+
+        yield gappsd
+
+        gappsd.disconnect()
+
+
 # USED AS EXAMPLES COPIED FROM gridappsd-sensor-simulator
 #
 # @pytest.fixture(scope="module")
@@ -104,3 +117,20 @@ def gridappsd_client(docker_dependencies):
 #         yield gappsd
 #
 #         gappsd.disconnect()
+
+
+# Add description column to the html report and fill with the __doc__ text
+
+def pytest_html_results_table_header(cells):
+    cells.insert(2, html.th("Description"))
+
+
+def pytest_html_results_table_row(report, cells):
+    cells.insert(2, html.td(report.description))
+
+
+@pytest.hookimpl(hookwrapper=True)
+def pytest_runtest_makereport(item, call):
+    outcome = yield
+    report = outcome.get_result()
+    report.description = str(item.function.__doc__)

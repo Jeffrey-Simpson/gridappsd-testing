@@ -39,7 +39,9 @@
                     ],
                     "reverse_differences": [
                         {
-                            "object": "_792127B0-9B3E-43EC-9D23-FD46F5A2F",
+
+                            "object": "_792127B0-9B3E-43EC-9D23-FD46F5A2F20D",
+
                             "attribute": "Switch.open",
                             "value": 0
                         }
@@ -167,4 +169,5 @@
             }
         }
     ]
-}
+
+}}
