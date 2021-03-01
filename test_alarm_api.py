@@ -24,12 +24,11 @@ def on_message(headers, message):
     global mrid_values
 
     if "gridappsd-alarms" in headers["destination"]:
-        if "ln1047pvfrm_sw" or "ln5001chp_sw" or "ln0895780_sw" in \
-                message['equipment_name']:
-            for y in message:
-                if "Open" in y['value']:
-                    LOGGER.info(f'Alarm created {y}')
-                    alarm_count += 1
+        for y in message:
+            print(message)
+            if "Open" in y['value']:
+                LOGGER.info(f'Alarm created {y}')
+                alarm_count += 1
 
     if "gridappsd-alarms" not in headers["destination"]:
         measurement_values = message["message"]["measurements"]
@@ -112,19 +111,14 @@ ORDER BY ?pname ?tname ?rname ?wnum ?bus
     regulators = []
     reg_name = []
     results_obj = results_reg['data']
-    # print(results_obj)
-    # for p in results_obj['results']['bindings']:
-    #     regulators.append(p['rid']['value'])
-    #     reg_name.append(p['rname']['value'])
+    print(results_obj)
     return results_obj
 
-@pytest.mark.parametrize("sim_config_file, sim_result_file", [
-    ("9500-alarm-config.json", "9500-alarm-simulation.output")
 
-])
-def test_alarm_output(gridappsd_client, sim_config_file, sim_result_file):
+@pytest.mark.parametrize("sim_config_file", [("13-new.json")])
+
+def test_alarm_output(gridappsd_client, sim_config_file):
     sim_config_file = os.path.join(os.path.dirname(__file__), f"simulation_config_files/{sim_config_file}")
-    sim_result_file = os.path.join(os.path.dirname(__file__), f"simulation_baseline_files/{sim_result_file}")
     assert os.path.exists(sim_config_file), f"File {sim_config_file} must exist to run simulation test"
 
     gapps = gridappsd_client
@@ -142,7 +136,6 @@ def test_alarm_output(gridappsd_client, sim_config_file, sim_result_file):
     with open(sim_config_file) as fp:
         LOGGER.info('Loading config')
         run_config = json.load(fp)
-        # print(run_config["test_config"]["events"])
         events = run_config["test_config"]["events"]
         switch_mrid1, switch_mrid2 = [], []
         # regulator_mrid1, regulator_mrid2 = [], []
@@ -151,7 +144,6 @@ def test_alarm_output(gridappsd_client, sim_config_file, sim_result_file):
                 switch_mrid1.append(events[i]["message"]["forward_differences"][0]["object"])
                 switch_mrid2.append(events[i]["message"]["reverse_differences"][0]["object"])
 
-    sim = Simulation(gapps, run_config)
     model_mrid = run_config["power_system_config"]["Line_name"]
     try:
 
@@ -164,37 +156,42 @@ def test_alarm_output(gridappsd_client, sim_config_file, sim_result_file):
         }
 
         response = gapps.get_response("goss.gridappsd.process.request.data.powergridmodel", request, timeout=60)
-        name = {'ln1047pvfrm_sw': 0, 'ln0895780_sw': 1, 'ln5001chp_sw': 2}
+        # name = {'ln1047pvfrm_sw': 0, 'ln0895780_sw': 1, 'ln5001chp_sw': 2}
+        switch_list = []
+        # print(response["data"])
         for switch in response["data"]:
             equipment_dict[switch["id"]] = switch
-            if switch['IdentifiedObject.name'] in {'ln1047pvfrm_sw', 'ln0895780_sw', 'ln5001chp_sw'}:
-                switch_mrid1[name[switch['IdentifiedObject.name']]] = switch['IdentifiedObject.mRID']
-                switch_mrid2[name[switch['IdentifiedObject.name']]] = switch['IdentifiedObject.mRID']
-                print("passed")
+            switch_list.append(switch['IdentifiedObject.mRID'])
+        print("switch_list", switch_list)
 
-        for i in range(len(switch_mrid1)):
-            # print(run_config["test_config"]["events"])
-            run_config["test_config"]["events"][i]["message"]["forward_differences"][0]["object"] = switch_mrid1[i]
-            run_config["test_config"]["events"][i]["message"]["reverse_differences"][0]["object"] = switch_mrid2[i]
+        for i in range(min(3,len(switch_list))):
+            print(i)
+            run_config["test_config"]["events"][i]["message"]["forward_differences"][0]["object"] = switch_list[i]
+            run_config["test_config"]["events"][i]["message"]["reverse_differences"][0]["object"] = switch_list[i]
 
+        print("testing regulator")
         regulator = get_reg_mrids(gapps, model_mrid)
-        value = "_5D67EBEE-9158-4C56-9E39-12A9AC0D7B8D"
-        for p in regulator['results']['bindings']:
-            if (p['rname']['value']) == "vreg3_c":
-                value = p['rid']['value']
+        # print("output",regulator)
+        value = regulator['results']['bindings'][0]['rid']['value']
+        # for p in regulator['results']['bindings']:
+        #     # if (p['rname']['value']) == "vreg3_c":
+        #     value = ['rid']['value'][0]
+        print("value", value)
 
         for i in range(len(events)):
             if "message" in events[i] and events[i]["message"]["forward_differences"][0]["attribute"] == "TapChanger.step":
                 run_config["test_config"]["events"][i]["message"]["forward_differences"][0]["object"] = value
                 run_config["test_config"]["events"][i]["message"]["reverse_differences"][0]["object"] = value
             if "inputOutageList" in events[i]:
-                run_config["test_config"]["events"][i]["inputOutageList"][0][ "objectMRID"] = value
+                run_config["test_config"]["events"][i]["inputOutageList"][0]["objectMRID"] = value
 
     except Exception as e:
         message_str = "An error occurred while trying to translate the  message received" + str(e)
 
     LOGGER.info('Starting the simulation')
     LOGGER.info(f'Simulation start time {run_config["simulation_config"]["start_time"]}')
+    sim = Simulation(gapps, run_config)
+    print(sim._run_config)
     sim.start_simulation(timeout=300)
     # regulators = sim.simulation_id, gapps, regulator
     LOGGER.info('sim.add_oncomplete_callback')
@@ -204,7 +201,7 @@ def test_alarm_output(gridappsd_client, sim_config_file, sim_result_file):
     log_topic = t.simulation_output_topic(sim.simulation_id)
     gapps.subscribe(alarms_topic, on_message)
     gapps.subscribe(log_topic, on_message)
-    # gapps.subscribe(log_topic, regulators)
+
     while not sim_complete:
         LOGGER.info('Sleeping')
         sleep(30)
@@ -225,4 +222,4 @@ def test_comm_outage():
 
 def test_alarm_count():
     global alarm_count
-    assert alarm_count == 3, f"Expecting 3 alarms received {alarm_count}"
+    assert alarm_count == 2, f"Expecting 3 alarms received {alarm_count}"
