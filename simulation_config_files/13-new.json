@@ -11,7 +11,7 @@
 },
    "simulation_config":{
        "start_time":"1373814000",
-       "duration":"120",
+       "duration":"150",
        "simulator":"GridLAB-D",
        "timestep_frequency":"1000",
        "timestep_increment":"1000",
@@ -73,27 +73,7 @@
                 "occuredDateTime": 1373814040,
                 "stopDateTime": 1373814055
             },
-            {
-                "message": {
-                    "forward_differences": [
-                        {
-                            "object": "_B2C95152-D6F7-4702-9910-E2543FB9B4F7",
-                            "attribute": "Switch.open",
-                            "value": 1
-                        }
-                    ],
-                    "reverse_differences": [
-                        {
-                            "object": "_B2C95152-D6F7-4702-9910-E2543FB9B4F7",
-                            "attribute": "Switch.open",
-                            "value": 0
-                        }
-                    ]
-                },
-                "event_type": "ScheduledCommandEvent",
-                "occuredDateTime": 1373814040,
-                "stopDateTime": 1373814065
-            },
+
             {
                 "message": {
                     "forward_differences": [
