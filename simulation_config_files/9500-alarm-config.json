@@ -39,7 +39,7 @@
                     ],
                     "reverse_differences": [
                         {
-                            "object": "_792127B0-9B3E-43EC-9D23-FD46F5A2F20D",
+                            "object": "_792127B0-9B3E-43EC-9D23-FD46F5A2F",
                             "attribute": "Switch.open",
                             "value": 0
                         }
@@ -95,7 +95,7 @@
                 "message": {
                     "forward_differences": [
                         {
-                            "object": "_5D67EBEE-9158-4C56-9E39-12A9AC0D7B8D",
+                            "object": "_5D67EBEE-9158-4C56-9E39-12A9AC0D7",
                             "attribute": "TapChanger.step",
                             "value": 4
                         }
@@ -120,7 +120,7 @@
                 "inputOutageList": [
                     {
                         "attribute": "TapChanger.step",
-                        "objectMRID": "_5D67EBEE-9158-4C56-9E39-12A9AC0D7B8D"
+                        "objectMRID": "_5D67EBEE-9158-4C56-9E39-12A9AC0D7"
                     }
                 ],
                 "occuredDateTime": 1373814140,
@@ -138,7 +138,7 @@
                     ],
                     "reverse_differences": [
                         {
-                            "object": "_5D67EBEE-9158-4C56-9E39-12A9AC0D7B8D",
+                            "object": "_5D67EBEE-9158-4C56-9E39-12A9AC0D7B8",
                             "attribute": "TapChanger.step",
                             "value": 5
                         }
