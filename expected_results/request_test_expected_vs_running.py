@@ -63,9 +63,10 @@ def start_test():
     req_template['test_config'] = testCfgAll
 
     simCfg13pv = json.dumps(req_template)
-    # print(simCfg13pv)
-    # print(json.dumps(testCfgAll,indent=2))
 
+    print("request")
+    print(json.dumps(req_template,indent=2))
+    # exit(0)
     goss = GOSS()
     goss.connect()
 

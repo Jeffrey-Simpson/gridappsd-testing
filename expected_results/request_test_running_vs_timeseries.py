@@ -74,6 +74,8 @@ def start_test(simulationID):
     req_template['test_config']['testType'] ='simulation_vs_timeseries'
     print(json.dumps(req_template['test_config'], indent=2))
     simCfg13pv = json.dumps(req_template)
+    print('request')
+    print(json.dumps(req_template,indent=2))
 
     simulationId = goss.get_response(goss_sim, simCfg13pv, timeout=10)
     print('sent simulation request')
