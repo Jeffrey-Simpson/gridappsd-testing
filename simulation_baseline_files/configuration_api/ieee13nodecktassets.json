@@ -1,0 +1,270 @@
+{
+    "feeders": [
+        {
+            "name": "ieee13nodecktassets",
+            "mRID": "_5B816B93-7A5F-B64C-8460-47C17D6E4B0F",
+            "substation": "IEEE13",
+            "substationID": "_6C62C905-6FC7-653D-9F1E-1340F974A587",
+            "subregion": "Small",
+            "subregionID": "_ABEB635F-729D-24BF-B8A4-E2EF268D8B9E",
+            "region": "IEEE",
+            "regionID": "_73C512BD-7249-4F50-50DA-D93849B89C43",
+            "swing_nodes": [
+                {
+                    "name": "source",
+                    "bus": "sourcebus",
+                    "phases": "ABC",
+                    "nominal_voltage": 66395.3,
+                    "x1": 200,
+                    "y1": 400
+                }
+            ],
+            "synchronousmachines": [],
+            "capacitors": [
+                {
+                    "name": "cap1",
+                    "parent": "675",
+                    "phases": "ABC",
+                    "kvar_A": 200,
+                    "kvar_B": 200,
+                    "kvar_C": 200,
+                    "x1": 400,
+                    "y1": 100
+                },
+                {
+                    "name": "cap2",
+                    "parent": "611",
+                    "phases": "C",
+                    "kvar_A": 0,
+                    "kvar_B": 0,
+                    "kvar_C": 100,
+                    "x1": 0,
+                    "y1": 100
+                }
+            ],
+            "solarpanels": [],
+            "batteries": [],
+            "overhead_lines": [
+                {
+                    "name": "645646",
+                    "from": "645",
+                    "to": "646",
+                    "phases": "BC",
+                    "length": 0.19,
+                    "configuration": "645646_PUZ",
+                    "x1": 100,
+                    "y1": 250,
+                    "x2": 0,
+                    "y2": 250
+                },
+                {
+                    "name": "671684",
+                    "from": "671",
+                    "to": "684",
+                    "phases": "AC",
+                    "length": 300.01,
+                    "configuration": "604:acsr_1/0",
+                    "x1": 200,
+                    "y1": 100,
+                    "x2": 100,
+                    "y2": 100
+                },
+                {
+                    "name": "632670",
+                    "from": "632",
+                    "to": "670",
+                    "phases": "ABC",
+                    "length": 667.01,
+                    "configuration": "601:acsr_556_5",
+                    "x1": 200,
+                    "y1": 250,
+                    "x2": 200,
+                    "y2": 200
+                },
+                {
+                    "name": "670671",
+                    "from": "670",
+                    "to": "671",
+                    "phases": "ABC",
+                    "length": 1333.02,
+                    "configuration": "601:acsr_556_5",
+                    "x1": 200,
+                    "y1": 200,
+                    "x2": 200,
+                    "y2": 100
+                },
+                {
+                    "name": "684652",
+                    "from": "684",
+                    "to": "652",
+                    "phases": "A",
+                    "length": 800.01,
+                    "configuration": "607:ts_1/0",
+                    "x1": 100,
+                    "y1": 100,
+                    "x2": 100,
+                    "y2": 0
+                },
+                {
+                    "name": "650632",
+                    "from": "rg60",
+                    "to": "632",
+                    "phases": "ABC",
+                    "length": 2000.04,
+                    "configuration": "601:acsr_556_5",
+                    "x1": 200,
+                    "y1": 300,
+                    "x2": 200,
+                    "y2": 250
+                },
+                {
+                    "name": "692675",
+                    "from": "692",
+                    "to": "675",
+                    "phases": "ABC",
+                    "length": 500.01,
+                    "configuration": "606:cn_250",
+                    "x1": 250,
+                    "y1": 100,
+                    "x2": 400,
+                    "y2": 100
+                },
+                {
+                    "name": "684611",
+                    "from": "684",
+                    "to": "611",
+                    "phases": "C",
+                    "length": 300.01,
+                    "configuration": "510:acsr_1/0",
+                    "x1": 100,
+                    "y1": 100,
+                    "x2": 0,
+                    "y2": 100
+                },
+                {
+                    "name": "632645",
+                    "from": "632",
+                    "to": "645",
+                    "phases": "BC",
+                    "length": 500.01,
+                    "configuration": "603:acsr_1/0",
+                    "x1": 200,
+                    "y1": 250,
+                    "x2": 100,
+                    "y2": 250
+                },
+                {
+                    "name": "632633",
+                    "from": "632",
+                    "to": "633",
+                    "phases": "ABC",
+                    "length": 500.01,
+                    "configuration": "602:acsr_4/0",
+                    "x1": 200,
+                    "y1": 250,
+                    "x2": 350,
+                    "y2": 250
+                },
+                {
+                    "name": "671680",
+                    "from": "671",
+                    "to": "680",
+                    "phases": "ABC",
+                    "length": 1000.02,
+                    "configuration": "601:acsr_556_5",
+                    "x1": 200,
+                    "y1": 100,
+                    "x2": 200,
+                    "y2": 0
+                }
+            ],
+            "switches": [
+                {
+                    "name": "671692",
+                    "from": "671",
+                    "to": "692",
+                    "phases": "ABC",
+                    "open": "false",
+                    "x1": 200,
+                    "y1": 100,
+                    "x2": 250,
+                    "y2": 100
+                }
+            ],
+            "fuses": [],
+            "breakers": [],
+            "reclosers": [],
+            "sectionalisers": [],
+            "disconnectors": [],
+            "transformers": [
+                {
+                    "name": "sub",
+                    "from": "sourcebus",
+                    "to": "650",
+                    "phases": "ABC",
+                    "configuration": "subxfmr:Dy1",
+                    "x1": 200,
+                    "y1": 400,
+                    "x2": 200,
+                    "y2": 350
+                },
+                {
+                    "name": "Reg",
+                    "from": "650",
+                    "to": "rg60",
+                    "phases": "A",
+                    "configuration": "regleg:Yy",
+                    "x1": 200,
+                    "y1": 350,
+                    "x2": 200,
+                    "y2": 300
+                },
+                {
+                    "name": "Reg",
+                    "from": "650",
+                    "to": "rg60",
+                    "phases": "C",
+                    "configuration": "regleg:Yy",
+                    "x1": 200,
+                    "y1": 350,
+                    "x2": 200,
+                    "y2": 300
+                },
+                {
+                    "name": "xfm1",
+                    "from": "633",
+                    "to": "634",
+                    "phases": "ABC",
+                    "configuration": "fdrxfmr:Yy",
+                    "x1": 350,
+                    "y1": 250,
+                    "x2": 400,
+                    "y2": 250
+                },
+                {
+                    "name": "Reg",
+                    "from": "650",
+                    "to": "rg60",
+                    "phases": "B",
+                    "configuration": "regleg:Yy",
+                    "x1": 200,
+                    "y1": 350,
+                    "x2": 200,
+                    "y2": 300
+                }
+            ],
+            "regulators": [
+                {
+                    "name": "Reg",
+                    "from": "650",
+                    "to": "rg60",
+                    "phases": "ABC",
+                    "x1": 200,
+                    "y1": 350,
+                    "x2": 200,
+                    "y2": 300
+                }
+            ]
+        }
+    ]
+}
