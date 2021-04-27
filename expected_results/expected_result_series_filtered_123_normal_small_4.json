@@ -7,20 +7,20 @@
             "timestamp": 1535574871,
             "measurements": [
               {
-                "measurement_mrid": "_0028728e-4a2f-4ef7-b248-840319a3e370",
+                "measurement_mrid": "_000b01a1-8238-4372-95c0-82aad26ea311",
                 "angle": -5.066423674487563,
                 "magnitude": 2388.676720682955,
                 "simulation_id": "1961648576",
                 "time": 1248156002},
                {
-                "measurement_mrid": "_0018886d-363a-456c-8b1b-116e8c2e6fc6",
-                "angle": -86.36800510651457,
-                "magnitude": 1.4651647694061578,
+                "measurement_mrid": "_00347396-b4b0-4218-9aba-b363f2cda841",
+                "angle": 118.66041090126667,
+                "magnitude": 2425.0820667756834,
                 "simulation_id": "1961648576",
                 "time": 1248156002},
                {
-                "measurement_mrid": "_00b26415-b4a0-4ef3-ab95-77e1beafc59a",
-                "angle": 28.940770423235723,
+                "measurement_mrid": "_0044ae64-1c72-4e81-b412-d7349ce267d3",
+                "angle": -39.42744945710241,
                 "magnitude": 374545.4981119089,
                 "simulation_id": "1961648576",
                 "time": 1248156002}
